@@ -125,7 +125,7 @@ class Member extends Model
 
 	private function getMkIndividualBirthDate($birth_date)
 	{
-		$attributes = $gender->attributes('m', true);
+		$attributes = $birth_date->attributes('m', true);
 
 		if ($attributes['null']) {
 			return Carbon::now();
