@@ -47,6 +47,7 @@ class RollCall extends Command
                     return false;
                 }
 
+                $this->line("member {$member->present} and knessetmember {$knessetmember->present}");
                 if ($member->present == $knessetmember->present) {
                     return false;
                 }
