@@ -3,6 +3,7 @@
 namespace App;
 
 use App\VisitLog;
+use Carbon\Carbon;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 use SimpleXMLElement;
@@ -64,7 +65,7 @@ class Member extends Model
         $member->first_name_english = (string) $elements->mk_individual_first_name_eng;
         $member->last_name_english = (string) $elements->mk_individual_name_eng;
         $member->gender = $member->getMkIndividualGender($elements->mk_individual_gender);
-        $member->birth_date = (string) $elements->mk_individual_birth_date;
+        $member->birth_date = $member->getMkIndividualBirthDate($elements->mk_individual_birth_date);
         $member->present = $member->getMkIndividualPresent($elements->mk_individual_present);
 
 		return $member;
@@ -120,5 +121,16 @@ class Member extends Model
 		}
 
 		return true;
+	}
+
+	private function getMkIndividualBirthDate($birth_date)
+	{
+		$attributes = $gender->attributes('m', true);
+
+		if ($attributes['null']) {
+			return Carbon::now();
+		}
+
+		return $birth_date;
 	}
 }
