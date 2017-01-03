@@ -28,6 +28,13 @@ class Member extends Model
 	
 	protected $dates = ['bitch_date'];
 
+	public static function boot()
+	{
+		self::created(function ($knessetmember) {
+			Event::fire(new newKnessetMember($knessetmember));
+		});
+	}
+
 	public function getNameAttribute()
 	{
 		return $this->first_name . ' ' . $this->last_name;
@@ -36,6 +43,26 @@ class Member extends Model
 	public function getNameEnglishAttribute()
 	{
 		return $this->first_name_english . ' ' . $this->last_name_english;
+	}
+
+	public function getSlugAttribute()
+	{
+		return str_slug($this->name_english);
+	}
+
+	public function scopeActive($query)
+	{
+		return $query->where('active', 1);
+	}
+
+	public function scopeInside($query)
+	{
+		return $query->where('present', 1);
+	}
+
+	public function scopeOutside($query)
+	{
+		return $query->where('present', 0);
 	}
 
 	public static function fetchFromTheKnesset($knesset_id)
