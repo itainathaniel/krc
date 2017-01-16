@@ -47,6 +47,8 @@ class RollCall extends Command
                     return false;
                 }
 
+                $member->validateStatus($knessetmember->mk_status_id);
+
                 $this->line("{$member->name_english}: member {$member->present} and knessetmember {$knessetmember->present}");
                 if ($member->present == $knessetmember->present) {
                     return false;

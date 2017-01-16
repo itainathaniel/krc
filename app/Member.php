@@ -15,13 +15,13 @@ class Member extends Model
 		'knesset_id',
 		'party_id',
 		'active',
+		'mk_status_id',
 		'image',
 		'first_name',
 		'last_name',
 		'first_name_english',
 		'last_name_english',
 		'gender',
-		'mk_status_id',
 		'birth_date',
 		'present'
 	];
@@ -55,6 +55,11 @@ class Member extends Model
 		return $query->where('active', 1);
 	}
 
+	public function scopeMk($query)
+	{
+		return $query->where('mk_status_id', '1');
+	}
+
 	public function scopeInside($query)
 	{
 		return $query->where('present', 1);
@@ -85,7 +90,8 @@ class Member extends Model
 
 		$member->knesset_id = (string) $elements->mk_individual_id;
         $member->party_id = 1;
-        $member->active = $member->getMkStatusId($elements->mk_status_id);
+        $member->active = 1;
+        $member->mk_status_id = $member->getMkStatusId($elements->mk_status_id);
         $member->image = (string) $elements->mk_individual_photo;
         $member->first_name = (string) $elements->mk_individual_first_name;
         $member->last_name = (string) $elements->mk_individual_name;
@@ -105,7 +111,8 @@ class Member extends Model
 
 	public function usedTheDoor()
 	{
-		$this->update(['present' => !$this->present]);
+		$this->present = !$this->present;
+		$this->save();
 
 		VisitLog::newEntry($this);
 		// raise event
@@ -116,10 +123,10 @@ class Member extends Model
 		$attributes = $status->attributes('m', true);
 
 		if ($attributes['null']) {
-			return false;
+			return 0;
 		}
 
-		return true;
+		return (integer) $status;
 	}
 
 	private function getMkIndividualGender($gender)
@@ -158,6 +165,15 @@ class Member extends Model
 			return Carbon::now();
 		}
 
-		return $birth_date;
+		return (string) $birth_date;
+	}
+
+	public function validateStatus($mk_status_id)
+	{
+		if ($this->mk_status_id == $mk_status_id) {
+			return true;
+		}
+
+		$this->update(['mk_status_id' => $mk_status_id]);
 	}
 }

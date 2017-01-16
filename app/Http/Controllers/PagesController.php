@@ -10,14 +10,14 @@ class PagesController extends Controller
 
     public function index()
     {
-        return redirect()->route('brb');
+        // return redirect()->route('brb');
 
-        $membersInside = Member::inside()->get();
+        $members = Member::mk()->get();
 
-        $membersLatestIn = Member::inside()->orderBy('updated_at', 'desc')->take(6)->get();
-        $membersLatestOut = Member::outside()->orderBy('updated_at', 'desc')->take(6)->get();
+        $membersLatestIn = Member::mk()->inside()->orderBy('updated_at', 'desc')->take(6)->get();
+        $membersLatestOut = Member::mk()->outside()->orderBy('updated_at', 'desc')->take(6)->get();
 
-        return view('pages.index', compact('membersInside', 'membersLatestIn', 'membersLatestOut'));
+        return view('pages.index', compact('members', 'membersLatestIn', 'membersLatestOut'));
     }
 
     public function brb()
