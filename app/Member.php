@@ -72,7 +72,7 @@ class Member extends Model
 
 	public static function fetchFromTheKnesset($knesset_id)
 	{
-		$url = "http://knesset.gov.il/KnessetOdataService/KnessetMembersData.svc/View_mk_individual({$knesset_id})";
+		$url = "http://knesset.gov.il/Odata_old/KnessetMembersData.svc/View_mk_individual({$knesset_id})";
 
 		try {
 			$xml = file_get_contents($url);
