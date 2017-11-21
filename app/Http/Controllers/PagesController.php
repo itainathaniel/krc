@@ -16,5 +16,5 @@ class PagesController extends Controller
         $membersLatestOut = Member::mk()->outside()->orderBy('updated_at', 'desc')->take(6)->get();
 
         return view('pages.index', compact('members', 'membersLatestIn', 'membersLatestOut'));
-    }
+    }   
 }
