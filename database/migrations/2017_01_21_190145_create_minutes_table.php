@@ -17,7 +17,7 @@ class CreateMinutesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('member_id');
             $table->date('day');
-            $table->integer('dotw');
+            $table->integer('week_day');
             $table->integer('minutes');
 
             $table->index(['member_id', 'day']);

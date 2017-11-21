@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
 class Minute extends Model
 {
 
-	protected $fillable = ['member_id', 'day', 'dotw', 'minutes'];
+	protected $fillable = ['member_id', 'day', 'week_day', 'minutes'];
 
     public $timestamps = false;
 
@@ -81,7 +81,7 @@ class Minute extends Model
             self::persist([
                 'member_id' => $member->id,
                 'day' => $start_date->format('Y-m-d'),
-                'dotw' => $start_date->format('w'),
+                'week_day' => $start_date->format('w'),
                 'minutes' => $start_date->diffInMinutes(
                     $day->format('Y-m-d') != $end_date->format('Y-m-d')
                         ? $start_date->copy()->endOfDay()
@@ -108,7 +108,7 @@ class Minute extends Model
             'member_id' => $day['member_id'],
             'day' => $day['day'],
         ], [
-            'dotw' => $day['dotw'],
+            'week_day' => $day['week_day'],
             'minutes' => 0
         ]);
 

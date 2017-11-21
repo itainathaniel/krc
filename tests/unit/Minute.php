@@ -43,7 +43,7 @@ class MinuteTest extends TestCase
 		$this->notSeeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
-			'dotw' => $leaving->created_at->format('w'),
+			'week_day' => $leaving->created_at->format('w'),
 			'minutes' => 0,
 		]);
 
@@ -73,7 +73,7 @@ class MinuteTest extends TestCase
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
-			'dotw' => $leaving->created_at->format('w'),
+			'week_day' => $leaving->created_at->format('w'),
 			'minutes' => 60,
 		]);
 
@@ -98,7 +98,7 @@ class MinuteTest extends TestCase
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
-			'dotw' => $leaving->created_at->format('w'),
+			'week_day' => $leaving->created_at->format('w'),
 			'minutes' => 120,
 		]);
 
@@ -131,14 +131,14 @@ class MinuteTest extends TestCase
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $entrance->created_at->format('Y-m-d'),
-			'dotw' => $entrance->created_at->format('w'),
+			'week_day' => $entrance->created_at->format('w'),
 			'minutes' => 821,
 		]);
 
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
-			'dotw' => $leaving->created_at->format('w'),
+			'week_day' => $leaving->created_at->format('w'),
 			'minutes' => 618,
 		]);
 
@@ -171,21 +171,21 @@ class MinuteTest extends TestCase
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $entrance->created_at->format('Y-m-d'),
-			'dotw' => $entrance->created_at->format('w'),
+			'week_day' => $entrance->created_at->format('w'),
 			'minutes' => 821,
 		]);
 
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $entrance->created_at->copy()->addDay()->format('Y-m-d'),
-			'dotw' => $entrance->created_at->copy()->addDay()->format('w'),
+			'week_day' => $entrance->created_at->copy()->addDay()->format('w'),
 			'minutes' => 1439,
 		]);
 
 		$this->seeInDatabase('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
-			'dotw' => $leaving->created_at->format('w'),
+			'week_day' => $leaving->created_at->format('w'),
 			'minutes' => 618,
 		]);
 
