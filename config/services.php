@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'botman' => [
+        'facebook_token' => 'bdb2a6982067eb11b835f90761282015',
+        'facebook_app_secret' => 'f3a210594fc86ab50b5c447f1db93ce5',
+        // somewhere__i__belong__to
+    ],
+
 ];

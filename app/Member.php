@@ -2,6 +2,10 @@
 
 namespace App;
 
+use App\Events\MemberEntered;
+use App\Events\MemberLeft;
+use App\Events\newKnessetMember;
+use App\Minute;
 use App\VisitLog;
 use Carbon\Carbon;
 use Exception;
@@ -26,13 +30,23 @@ class Member extends Model
 		'present'
 	];
 	
-	protected $dates = ['bitch_date'];
+	protected $dates = ['birth_date'];
 
 	public static function boot()
 	{
 		self::created(function ($knessetmember) {
-			Event::fire(new newKnessetMember($knessetmember));
+			event(new newKnessetMember($knessetmember));
 		});
+	}
+
+	public function visits()
+	{
+		return $this->hasMany(VisitLog::class);
+	}
+
+	public function minutes()
+	{
+		return $this->hasMany(Minute::class);
 	}
 
 	public function getNameAttribute()
@@ -72,7 +86,7 @@ class Member extends Model
 
 	public static function fetchFromTheKnesset($knesset_id)
 	{
-		$url = "http://knesset.gov.il/KnessetOdataService/KnessetMembersData.svc/View_mk_individual({$knesset_id})";
+		$url = "http://knesset.gov.il/Odata_old/KnessetMembersData.svc/View_mk_individual({$knesset_id})";
 
 		try {
 			$xml = file_get_contents($url);
@@ -114,8 +128,13 @@ class Member extends Model
 		$this->present = !$this->present;
 		$this->save();
 
-		VisitLog::newEntry($this);
-		// raise event
+		$log = $this->visits()->create(['present' => $this->present]);
+
+		if ($this->present) {
+			event(new MemberEntered($this, $log));
+		} else {
+			event(new MemberLeft($this, $log));
+		}
 	}
 
 	private function getMkStatusId($status)
@@ -165,7 +184,9 @@ class Member extends Model
 			return Carbon::now();
 		}
 
-		return (string) $birth_date;
+		return Carbon::createFromFormat(
+			'Y-h-d\TH:i:s', (string) $birth_date
+		);
 	}
 
 	public function validateStatus($mk_status_id)

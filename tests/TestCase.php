@@ -1,5 +1,8 @@
 <?php
 
+use App\Member;
+use App\VisitLog;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -7,7 +10,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
      *
      * @var string
      */
-    protected $baseUrl = 'http://localhost';
+    protected $baseUrl = 'https://krc.dev';
 
     /**
      * Creates the application.
@@ -21,5 +24,24 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    public function newMember($params = [])
+    {
+        return factory(Member::class)->create($params);
+    }
+
+    public function newVisitLogInside($params = [])
+    {
+        return factory(VisitLog::class)
+            ->states('inside')
+            ->create($params);
+    }
+
+    public function newVisitLogOutside($params = [])
+    {
+        return factory(VisitLog::class)
+            ->states('outside')
+            ->create($params);
     }
 }

@@ -12,12 +12,13 @@
 */
 
 Route::get('/', 'PagesController@index')->name('homepage');
-Route::get('be-right-back', 'PagesController@brb')->name('brb');
 Route::get('member/{member}/{slug?}', ['uses' => 'MembersController@show', 'as' => 'member']);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+// Route::get('krcbotman', 'ChatController@show');
 
 Route::group([
 		'middleware' => ['auth', 'admin'],
