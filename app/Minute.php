@@ -12,6 +12,9 @@ class Minute extends Model
 
 	protected $fillable = ['member_id', 'day', 'week_day', 'minutes'];
 
+    protected $dates = ['day'];
+    protected $dateFormat = 'Y-m-d';
+
     public $timestamps = false;
 
     public function member()

@@ -1,34 +1,28 @@
 <?php
 
+namespace Tests;
+
 use App\Member;
 use App\VisitLog;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
 
-abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
+abstract class TestCase extends BaseTestCase
 {
-    /**
-     * The base URL to use while testing the application.
-     *
-     * @var string
-     */
+    use CreatesApplication;
+
     protected $baseUrl = 'https://krc.dev';
-
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
-    {
-        $app = require __DIR__.'/../bootstrap/app.php';
-
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
-
-        return $app;
-    }
 
     public function newMember($params = [])
     {
-        return factory(Member::class)->create($params);
+        return factory(Member::class)->make($params);
+    }
+
+    public function savedNewMember($params = [])
+    {
+        $member = $this->newMember();
+        $member->save();
+
+        return $member;
     }
 
     public function newVisitLogInside($params = [])

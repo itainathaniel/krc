@@ -1,10 +1,13 @@
 <?php
 
+namespace Tests\Unit;
+
 use App\Minute;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Tests\TestCase;
 
 class MinuteTest extends TestCase
 {
@@ -19,7 +22,7 @@ class MinuteTest extends TestCase
     /** @test  */
     public function it_doesnt_log_entranceless_logs()
     {
-    	$member = $this->newMember();
+    	$member = $this->savedNewMember();
 
 		$leaving = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()]));
 
@@ -31,7 +34,7 @@ class MinuteTest extends TestCase
     /** @test  */
     public function it_loggs_less_zero_minutes()
     {
-    	$member = $this->newMember();
+    	$member = $this->savedNewMember();
 
 		$entrance = $member->visits()->save($this->newVisitLogInside(['created_at' => Carbon::now()]));
 		$leaving = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()]));
@@ -40,7 +43,7 @@ class MinuteTest extends TestCase
 
 		$this->assertEquals(1, $result);
 
-		$this->notSeeInDatabase('minutes', [
+		$this->assertDatabaseMissing('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
 			'week_day' => $leaving->created_at->format('w'),
@@ -54,7 +57,7 @@ class MinuteTest extends TestCase
     /** @test  */
     public function it_loggs_60_minutes()
     {
-		$member = $this->newMember();
+		$member = $this->savedNewMember();
 
 		$time = Carbon::createFromDate(2017, 2, 18);
 		$time->startOfDay()->addHours(10)->addMinutes(18);
@@ -70,7 +73,7 @@ class MinuteTest extends TestCase
 
 		$this->assertEquals(1, $result);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
 			'week_day' => $leaving->created_at->format('w'),
@@ -84,18 +87,20 @@ class MinuteTest extends TestCase
     /** @test  */
     public function it_loggs_60_minutes_twice_a_day()
     {
-		$member = $this->newMember();
+		$member = $this->savedNewMember();
 
-		$entrance = $member->visits()->save($this->newVisitLogInside(['created_at' => Carbon::now()->subMinutes(60)]));
-		$leaving = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()]));
+		$entrance = $member->visits()->save($this->newVisitLogInside(['created_at' => Carbon::now()->subMinutes(180)]));
+		$leaving = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()->subMinutes(120)]));
+		$entrance2 = $member->visits()->save($this->newVisitLogInside(['created_at' => Carbon::now()->subMinutes(60)]));
+		$leaving2 = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()]));
 
 		$result = Minute::keep($member, $leaving);
 
-		$result2 = Minute::keep($member, $leaving);
+		$result2 = Minute::keep($member, $leaving2);
 
 		$this->assertEquals(1, $result);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
 			'week_day' => $leaving->created_at->format('w'),
@@ -109,7 +114,7 @@ class MinuteTest extends TestCase
     /** @test  */
     public function it_loggs_two_dates()
     {
-		$member = $this->newMember();
+		$member = $this->savedNewMember();
 
 		$time = Carbon::createFromDate(2017, 2, 18);
 		$time->startOfDay()->addHours(10)->addMinutes(18);
@@ -128,14 +133,14 @@ class MinuteTest extends TestCase
 
 		$this->assertEquals(2, $result);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $entrance->created_at->format('Y-m-d'),
 			'week_day' => $entrance->created_at->format('w'),
 			'minutes' => 821,
 		]);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
 			'week_day' => $leaving->created_at->format('w'),
@@ -149,7 +154,7 @@ class MinuteTest extends TestCase
     /** @test  */
     public function it_loggs_three_dates()
     {
-		$member = $this->newMember();
+		$member = $this->savedNewMember();
 
 		$time = Carbon::createFromDate(2017, 2, 18);
 		$time->startOfDay()->addHours(10)->addMinutes(18);
@@ -168,21 +173,21 @@ class MinuteTest extends TestCase
 
 		$this->assertEquals(3, $result);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $entrance->created_at->format('Y-m-d'),
 			'week_day' => $entrance->created_at->format('w'),
 			'minutes' => 821,
 		]);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $entrance->created_at->copy()->addDay()->format('Y-m-d'),
 			'week_day' => $entrance->created_at->copy()->addDay()->format('w'),
 			'minutes' => 1439,
 		]);
 
-		$this->seeInDatabase('minutes', [
+		$this->assertDatabaseHas('minutes', [
 			'member_id' => $member->id,
 			'day' => $leaving->created_at->format('Y-m-d'),
 			'week_day' => $leaving->created_at->format('w'),

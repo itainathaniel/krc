@@ -1,4 +1,5 @@
-/*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */
+@import url(https://fonts.googleapis.com/css?family=Alef:400,700&subset=hebrew);/*! minireset.css v0.0.2 | MIT License | github.com/jgthms/minireset.css */
+
 html,
 body,
 p,
@@ -48,11 +49,15 @@ textarea {
 }
 
 html {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
 }
 
 img,
@@ -79,18 +84,23 @@ th {
   text-align: left;
 }
 
-@import url(https://fonts.googleapis.com/css?family=Alef:400,700&subset=hebrew);
 .level-item {
   -webkit-box-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   -webkit-box-flex: 0;
-  flex-grow: 0;
-  flex-shrink: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   -webkit-box-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .level-item .title,
@@ -106,10 +116,13 @@ th {
 
 .level-left,
 .level-right {
-  flex-basis: auto;
+  -ms-flex-preferred-size: auto;
+      flex-basis: auto;
   -webkit-box-flex: 0;
-  flex-grow: 0;
-  flex-shrink: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .level-left .level-item:not(:last-child),
@@ -120,14 +133,17 @@ th {
 .level-left .level-item.is-flexible,
 .level-right .level-item.is-flexible {
   -webkit-box-flex: 1;
-  flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 .level-left {
   -webkit-box-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: start;
-  justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 @media screen and (max-width: 768px) {
@@ -139,29 +155,35 @@ th {
 @media screen and (min-width: 769px) {
   .level-left {
     display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 }
 
 .level-right {
   -webkit-box-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: end;
-  justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 @media screen and (min-width: 769px) {
   .level-right {
     display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 }
 
 .level {
   -webkit-box-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .level:not(:last-child) {
@@ -179,6 +201,7 @@ th {
 
 .level.is-mobile {
   display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -188,17 +211,21 @@ th {
 
 .level.is-mobile > .level-item:not(.is-narrow) {
   -webkit-box-flex: 1;
-  flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 @media screen and (min-width: 769px) {
   .level {
     display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
+
   .level > .level-item:not(.is-narrow) {
     -webkit-box-flex: 1;
-    flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
   }
 }
 
@@ -217,16 +244,23 @@ body {
 @media screen and (min-width: 769px) {
   .faces:not(.is-desktop) {
     display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
   }
 }
 
 .column {
   display: block;
+  -ms-flex-preferred-size: 0;
   flex-basis: 0;
   -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
   flex-grow: 1;
+  -ms-flex-negative: 1;
   flex-shrink: 1;
   padding: 0.75rem;
 }
@@ -238,7 +272,8 @@ body {
 
 .member__profile {
   width: 6.66%;
-  flex-basis: 6.66%;
+  -ms-flex-preferred-size: 6.66%;
+      flex-basis: 6.66%;
   height: 12.5%;
   padding: 0;
   position: relative;
@@ -276,4 +311,3 @@ body {
   width: 100%;
 }
 
-/*# sourceMappingURL=app.css.map */

@@ -1,9 +1,9 @@
 <template>
     <div :class="getMemberClassname()"
         :style="{ backgroundImage: 'url(' + image + ')' }">
-        <a :href="href">
+        <!-- <a :href="href"> -->
             <h4>{{ name }}</h4>
-        </a>
+        <!-- </a> -->
     </div>
 </template>
 

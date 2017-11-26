@@ -32,12 +32,16 @@ class Member extends Model
 	
 	protected $dates = ['birth_date'];
 
-	public static function boot()
-	{
-		self::created(function ($knessetmember) {
-			event(new newKnessetMember($knessetmember));
-		});
-	}
+	protected $dispatchesEvents = [
+		'created' => newKnessetMember::class,
+	];
+
+	// public static function boot()
+	// {
+	// 	self::created(function ($knessetmember) {
+	// 		event(new newKnessetMember($knessetmember));
+	// 	});
+	// }
 
 	public function visits()
 	{

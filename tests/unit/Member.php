@@ -1,11 +1,15 @@
 <?php
 
+namespace Tests\Unit;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Events\newKnessetMember;
 use App\Member;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Support\Facades\Event;
+use Tests\TestCase;
 
 class MemberTest extends TestCase
 {
@@ -17,9 +21,9 @@ class MemberTest extends TestCase
     {
         Event::fake();
 
-        $member = $this->newMember();
+        $member = $this->savedNewMember();
 
-        Event::assertFired(newKnessetMember::class, function ($e) use ($member) {
+        Event::assertDispatched(newKnessetMember::class, function ($e) use ($member) {
             return $member->wasRecentlyCreated;
         });
     }
