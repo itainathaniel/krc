@@ -3,17 +3,17 @@ php:
   - 7.0
 
 before_script:
-  - cp .env.travis .env
+#  - cp .env.travis .env
   - composer self-update
   - composer install --prefer-source --no-interaction --dev
-  - php artisan key:generate
-  - php artisan migrate
+#  - php artisan key:generate
+#  - php artisan migrate
 
 # before_install:
   # - mysql -e 'CREATE DATABASE realworld_test;'
 
 script:
-  - phpunit
+  - phpunit tests
 
 # services:
   # - mysql
