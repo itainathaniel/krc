@@ -1,0 +1,286 @@
+<service xmlns="http://www.w3.org/2007/app" xmlns:atom="http://www.w3.org/2005/Atom" xml:base="http://knesset.gov.il/KnessetOdataService/KnessetMembersData.svc/">
+	<workspace>
+		<atom:title>Default</atom:title>
+		<collection href="v_ministry_no_mk">
+			<atom:title>v_ministry_no_mk</atom:title>
+			שרים שאינם חברי כנסת
+		</collection>
+		<collection href="View_faction_government">
+			<atom:title>View_faction_government</atom:title>
+			<m:properties>
+				<d:faction_government_id m:type="Edm.Int16">230</d:faction_government_id>
+				<d:faction_id m:type="Edm.Int16">101</d:faction_id>
+				<d:government_id m:type="Edm.Byte">34</d:government_id>
+				<d:faction_government_begin_date m:type="Edm.DateTime">2016-05-30T00:00:00</d:faction_government_begin_date>
+				<d:faction_government_end_date m:type="Edm.DateTime" m:null="true" />
+				<d:faction_government_no_minister m:type="Edm.Boolean" m:null="true" />
+				<d:faction_government_only_deputy_ministers m:type="Edm.Boolean" m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_faction_knesset">
+			<atom:title>View_faction_knesset</atom:title>
+			<m:properties>
+				<d:faction_knesset_id m:type="Edm.Int32">458</d:faction_knesset_id>
+				<d:faction_id m:type="Edm.Int16">215</d:faction_id>
+				<d:knesset_id m:type="Edm.Byte">20</d:knesset_id>
+				<d:faction_knesset_begin_date m:type="Edm.DateTime">2015-03-31T00:00:00</d:faction_knesset_begin_date>
+				<d:faction_knesset_end_date m:type="Edm.DateTime" m:null="true" />
+				<d:faction_knesset_minor_move m:type="Edm.Boolean" m:null="true" />
+				<d:faction_knesset_phone1>02-6753333</d:faction_knesset_phone1>
+				<d:faction_knesset_phone2 m:null="true" />
+				<d:faction_knesset_fax m:null="true" />
+				<d:faction_knesset_note>Zionistunion@knesset.gov.il</d:faction_knesset_note>
+				<d:faction_knesset_note_eng m:null="true" />
+				<d:faction_knesset_manager_name>זהבה אילני</d:faction_knesset_manager_name>
+				<d:faction_knesset_manager_gender m:type="Edm.Boolean" m:null="true" />
+				<d:faction_knesset_secretary_name m:null="true" />
+				<d:faction_knesset_secretary_gender m:type="Edm.Boolean" m:null="true" />
+				<d:faction_knesset_speaker_name m:null="true" />
+				<d:faction_knesset_speaker_gender m:type="Edm.Boolean" m:null="true" />
+				<d:faction_knesset_coordinator_name m:null="true" />
+				<d:faction_knesset_coordinator_gender m:type="Edm.Boolean" m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_family_relation">
+			<atom:title>View_family_relation</atom:title>
+			<m:properties>
+				<d:family_relation_id m:type="Edm.Int32">86</d:family_relation_id>
+				<d:family_relation_type_id m:type="Edm.Int32">3</d:family_relation_type_id>
+				<d:family_relation_mk_older_id m:type="Edm.Int32">72</d:family_relation_mk_older_id>
+				<d:family_relation_mk_younger_id m:type="Edm.Int32">929</d:family_relation_mk_younger_id>
+			</m:properties>
+		</collection>
+		<collection href="View_government">
+			<atom:title>View_government</atom:title>
+			<m:properties>
+				<d:government_id m:type="Edm.Byte">34</d:government_id>
+				<d:knesset_id m:type="Edm.Byte">20</d:knesset_id>
+				<d:government_number m:type="Edm.Byte">34</d:government_number>
+				<d:government_begin_date m:type="Edm.DateTime">2015-05-14T00:00:00</d:government_begin_date>
+				<d:government_end_date m:type="Edm.DateTime" m:null="true" />
+				<d:government_guidelines_link m:null="true" />
+				<d:government_coalition_link m:null="true" />
+				<d:government_caption3_eng m:null="true" />
+				<d:government_caption3 m:null="true" />
+				<d:government_picture3 m:null="true" />
+				<d:government_caption2_eng m:null="true" />
+				<d:government_caption2 m:null="true" />
+				<d:government_picture2 m:null="true" />
+				<d:government_caption1_eng m:null="true" />
+				<d:government_caption1 m:null="true" />
+				<d:government_picture1 m:null="true" />
+				<d:government_note>ביום 19 במאי 2015 החליטה הממשלה להעביר למשרד ראש הממשלה את שטחי הפעולה בענייני ירושלים ולשנות את שם המשרד לירושלים והתפוצות ל”משרד התפוצות”.&#xD;ביום 31 במאי 2015 החליטה הממשלה להקים את משרד ירושלים ומורשת.&#xD;ביום 2 בספטמבר 2015 החליטה הממשלה על שינוי שמו של המשרד לאזרחים ותיקים ל”המשרד לשוויון חברתי”.&#xD;ביום 2 בספטמבר 2015 החליטה הממשלה על שינוי שמו של משרד הבינוי ל”משרד הבינוי והשיכון”.&#xD;ביום 1 באוגוסט 2016 החליטה הממשלה על שינוי שמו של משרד הרווחה והשירותים החברתיים ל”משרד העבודה, הרווחה והשירותים החברתיים”.</d:government_note>
+				<d:government_note_eng>On May 19 2015, the matter of Jerusalem was moved to the Prime Minsiter`s Office from the Ministry of Jerusalem and Diaspora Affairs, which is now called the ”Ministry of Diaspora Affairs.”&#xD;On May 31 2015, the Government decided to establish the Ministry of ”Jerusalem Affairs and Heritage.”&#xD;On September 2 2015, the Government decided to make two changes to the names of ministries:&#xD;The Ministry for Senior Citizens is now called the ”Ministry for Social Equality.”&#xD;The Ministry of Construction is now called the ”Ministry of Construction and Housing.”&#xD;On August 1 2016, the Government decided to change the name of the Ministry of Welfare and Social Services to the ”Ministry of Labor, Welfare, and Social Services”</d:government_note_eng>
+			</m:properties>
+		</collection>
+		<collection href="View_government_role">
+			<atom:title>View_government_role</atom:title>
+			<m:properties>
+				<d:government_role_id m:type="Edm.Int32">1035</d:government_role_id>
+				<d:government_id m:type="Edm.Byte">34</d:government_id>
+				<d:government_role_type_id m:type="Edm.Int16">9</d:government_role_type_id>
+				<d:ministry_id m:type="Edm.Int16">77</d:ministry_id>
+				<d:government_role_name_eng m:null="true" />
+				<d:government_role_name m:null="true" />
+				<d:government_role_name_female m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_knesset_role">
+			<atom:title>View_knesset_role</atom:title>
+			<m:properties>
+				<d:knesset_role_id m:type="Edm.Int32">1817</d:knesset_role_id>
+				<d:knesset_role_type_id m:type="Edm.Int16">75</d:knesset_role_type_id>
+				<d:committee_id m:type="Edm.Int16" m:null="true" />
+				<d:lobby_id m:type="Edm.Int16">420</d:lobby_id>
+				<d:faction_id m:type="Edm.Int16" m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_mk_budget">
+			<atom:title>View_mk_budget</atom:title>
+		</collection>
+		<collection href="View_mk_expense">
+			<atom:title>View_mk_expense</atom:title>
+		</collection>
+		<collection href="View_mk_faction_history">
+			<atom:title>View_mk_faction_history</atom:title>
+			<m:properties>
+				<d:mk_faction_history_id m:type="Edm.Int32">3497</d:mk_faction_history_id>
+				<d:mk_individual_id m:type="Edm.Int32">754</d:mk_individual_id>
+				<d:faction_id m:type="Edm.Int16" m:null="true" />
+				<d:knesset_id m:type="Edm.Byte" m:null="true" />
+				<d:mk_faction_history_begin_date m:type="Edm.DateTime" m:null="true" />
+				<d:mk_faction_history_end_date m:type="Edm.DateTime" m:null="true" />
+			</m:properties>
+			<m:properties>
+				<d:mk_faction_history_id m:type="Edm.Int32">3297</d:mk_faction_history_id>
+				<d:mk_individual_id m:type="Edm.Int32">843</d:mk_individual_id>
+				<d:faction_id m:type="Edm.Int16">4</d:faction_id>
+				<d:knesset_id m:type="Edm.Byte">19</d:knesset_id>
+				<d:mk_faction_history_begin_date m:type="Edm.DateTime">2013-02-05T00:00:00</d:mk_faction_history_begin_date>
+				<d:mk_faction_history_end_date m:type="Edm.DateTime">2015-03-31T00:00:00</d:mk_faction_history_end_date>
+			</m:properties>
+			<m:properties>
+				<d:mk_faction_history_id m:type="Edm.Int32">3360</d:mk_faction_history_id>
+				<d:mk_individual_id m:type="Edm.Int32">90</d:mk_individual_id>
+				<d:faction_id m:type="Edm.Int16">13</d:faction_id>
+				<d:knesset_id m:type="Edm.Byte">20</d:knesset_id>
+				<d:mk_faction_history_begin_date m:type="Edm.DateTime">2015-03-31T00:00:00</d:mk_faction_history_begin_date>
+				<d:mk_faction_history_end_date m:type="Edm.DateTime" m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_mk_government_history">
+			<atom:title>View_mk_government_history</atom:title>
+			<m:properties>
+				<d:mk_gov_hist_id m:type="Edm.Int32">1364</d:mk_gov_hist_id>
+				<d:government_role_id m:type="Edm.Int32">1015</d:government_role_id>
+				<d:mk_individual_id m:type="Edm.Int32">41</d:mk_individual_id>
+				<d:mk_gov_hist_begin_date m:type="Edm.DateTime">2016-01-11T00:00:00</d:mk_gov_hist_begin_date>
+				<d:mk_gov_hist_end_date m:type="Edm.DateTime" m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_mk_individual">
+			<atom:title>View_mk_individual</atom:title>
+			<m:properties>
+				<d:mk_individual_id m:type="Edm.Int32">956</d:mk_individual_id>
+				<d:army_rank_id m:type="Edm.Int16" m:null="true" />
+				<d:army_history_desc m:null="true" />
+				<d:army_history_desc_eng m:null="true" />
+				<d:country_id m:type="Edm.Int16">3</d:country_id>
+				<d:country_desc>לוגנסק</d:country_desc>
+				<d:country_desc_eng m:null="true" />
+				<d:minority_type_id m:type="Edm.Byte" m:null="true" />
+				<d:education_id m:type="Edm.Int16">3</d:education_id>
+				<d:education_desc>בעלת תואר ראשון במשפטים של האוניברסיטה הממלכתית באוקראינה</d:education_desc>
+				<d:education_desc_eng>BA in Law from East Ukrainian Volodymyr Dahl National University</d:education_desc_eng>
+				<d:marital_status_id m:type="Edm.Int32">1</d:marital_status_id>
+				<d:city_id m:type="Edm.Int32" m:null="true" />
+				<d:mk_status_id m:type="Edm.Byte">1</d:mk_status_id>
+				<d:mk_individual_name>מלינובסקי</d:mk_individual_name>
+				<d:mk_individual_name_eng>Malinovsky</d:mk_individual_name_eng>
+				<d:mk_individual_first_name>יוליה</d:mk_individual_first_name>
+				<d:mk_individual_first_name_eng>Yulia</d:mk_individual_first_name_eng>
+				<d:mk_individual_gender m:type="Edm.Boolean" m:null="true" />
+				<d:mk_individual_birth_date m:type="Edm.DateTime">1975-09-05T00:00:00</d:mk_individual_birth_date>
+				<d:mk_individual_immigration_date m:type="Edm.DateTime">1998-01-01T00:00:00</d:mk_individual_immigration_date>
+				<d:mk_individual_children_number m:type="Edm.Int32" m:null="true" />
+				<d:mk_individual_death_date m:type="Edm.DateTime" m:null="true" />
+				<d:mk_individual_email>ymalinovsky@knesset.gov.il</d:mk_individual_email>
+				<d:mk_individual_email_on m:type="Edm.Boolean">true</d:mk_individual_email_on>
+				<d:mk_individual_photo>http://knesset.gov.il/mk/images/members/Yulia_Malinovsky.jpg</d:mk_individual_photo>
+				<d:mk_individual_phone1>02-6408518</d:mk_individual_phone1>
+				<d:mk_individual_phone2 m:null="true" />
+				<d:mk_individual_phone_fax>02-6408515</d:mk_individual_phone_fax>
+				<d:mk_individual_present m:type="Edm.Boolean" m:null="true" />
+				<d:mk_individual_public_activity m:type="Edm.Int32">32</d:mk_individual_public_activity>
+				<d:mk_individual_public_activity_eng m:type="Edm.Int32">43</d:mk_individual_public_activity_eng>
+				<d:mk_individual_note m:null="true" />
+				<d:mk_individual_note_eng m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_mk_knesset_history">
+			<atom:title>View_mk_knesset_history</atom:title>
+			<m:properties>
+				<d:mk_knes_hist_id m:type="Edm.Int32">1099</d:mk_knes_hist_id>
+				<d:mk_individual_id m:type="Edm.Int32">375</d:mk_individual_id>
+				<d:mk_individual_replaced_id m:type="Edm.Int32" m:null="true" />
+				<d:knesset_id m:type="Edm.Byte">9</d:knesset_id>
+				<d:mk_knes_hist_begin_date m:type="Edm.DateTime">1977-06-13T00:00:00</d:mk_knes_hist_begin_date>
+				<d:mk_knes_hist_end_date m:type="Edm.DateTime">1981-07-20T00:00:00</d:mk_knes_hist_end_date>
+			</m:properties>
+			<m:properties>
+				<d:mk_knes_hist_id m:type="Edm.Int32">2099</d:mk_knes_hist_id>
+				<d:mk_individual_id m:type="Edm.Int32">532</d:mk_individual_id>
+				<d:mk_individual_replaced_id m:type="Edm.Int32">261</d:mk_individual_replaced_id>
+				<d:knesset_id m:type="Edm.Byte">11</d:knesset_id>
+				<d:mk_knes_hist_begin_date m:type="Edm.DateTime">1988-10-31T00:00:00</d:mk_knes_hist_begin_date>
+				<d:mk_knes_hist_end_date m:type="Edm.DateTime">1988-11-21T00:00:00</d:mk_knes_hist_end_date>
+			</m:properties>
+		</collection>
+		<collection href="View_mk_knesset_role_history">
+			<atom:title>View_mk_knesset_role_history</atom:title>
+		</collection>
+		<collection href="View_mk_language">
+			<atom:title>View_mk_language</atom:title>
+		</collection>
+		<collection href="View_mk_link">
+			<atom:title>View_mk_link</atom:title>
+		</collection>
+		<collection href="View_mk_link_type">
+			<atom:title>View_mk_link_type</atom:title>
+		</collection>
+		<collection href="View_mk_profession">
+			<atom:title>View_mk_profession</atom:title>
+		</collection>
+		<collection href="View_mk_publication">
+			<atom:title>View_mk_publication</atom:title>
+		</collection>
+		<collection href="View_t_army_rank">
+			<atom:title>View_t_army_rank</atom:title>
+		</collection>
+		<collection href="View_t_city">
+			<atom:title>View_t_city</atom:title>
+		</collection>
+		<collection href="View_t_country">
+			<atom:title>View_t_country</atom:title>
+		</collection>
+		<collection href="View_t_education">
+			<atom:title>View_t_education</atom:title>
+		</collection>
+		<collection href="View_t_faction">
+			<atom:title>View_t_faction</atom:title>
+			<m:properties>
+				<d:faction_id m:type="Edm.Int16">190</d:faction_id>
+				<d:faction_name>שינוי מפלגת החילונים ומעמד הביניים</d:faction_name>
+				<d:faction_name_eng>Shinui - Party for the Secular and the Middle Class</d:faction_name_eng>
+				<d:faction_short_name m:null="true" />
+				<d:faction_short_name_eng m:null="true" />
+				<d:faction_url m:null="true" />
+				<d:faction_desc>במהלך הכנסת ה-16, הסיעה שינוי התנועה החילונית שינתה את שמה ונהייתה שינוי מפלגת החילונים ומעמד הביניים.</d:faction_desc>
+				<d:faction_desc_eng>During the Sixteenth Knesset, the parliamentary group Shinui -the Secular Movement changed its name to Shinui - Party for the Secular and the Middle Class.</d:faction_desc_eng>
+			</m:properties>
+			<m:properties>
+				<d:faction_id m:type="Edm.Int16">219</d:faction_id>
+				<d:faction_name>כולנו בראשות משה כחלון</d:faction_name>
+				<d:faction_name_eng>Kulanu Chaired by Moshe Kahlon</d:faction_name_eng>
+				<d:faction_short_name>כולנו</d:faction_short_name>
+				<d:faction_short_name_eng>Kulanu</d:faction_short_name_eng>
+				<d:faction_url m:null="true" />
+				<d:faction_desc m:null="true" />
+				<d:faction_desc_eng m:null="true" />
+			</m:properties>
+		</collection>
+		<collection href="View_t_family_relation_type">
+			<atom:title>View_t_family_relation_type</atom:title>
+		</collection>
+		<collection href="View_t_government_role_type">
+			<atom:title>View_t_government_role_type</atom:title>
+		</collection>
+		<collection href="View_t_knesset_role_type">
+			<atom:title>View_t_knesset_role_type</atom:title>
+		</collection>
+		<collection href="View_t_language">
+			<atom:title>View_t_language</atom:title>
+		</collection>
+		<collection href="View_t_lobby">
+			<atom:title>View_t_lobby</atom:title>
+		</collection>
+		<collection href="View_t_marital_status">
+			<atom:title>View_t_marital_status</atom:title>
+		</collection>
+		<collection href="View_t_ministry">
+			<atom:title>View_t_ministry</atom:title>
+		</collection>
+		<collection href="View_t_ministry_domain">
+			<atom:title>View_t_ministry_domain</atom:title>
+		</collection>
+		<collection href="View_t_minority_type">
+			<atom:title>View_t_minority_type</atom:title>
+		</collection>
+		<collection href="View_t_mk_status">
+			<atom:title>View_t_mk_status</atom:title>
+		</collection>
+		<collection href="View_t_profession">
+			<atom:title>View_t_profession</atom:title>
+		</collection>
+	</workspace>
+</service>

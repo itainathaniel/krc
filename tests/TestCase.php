@@ -1,25 +1,41 @@
 <?php
 
-abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
+namespace Tests;
+
+use App\Member;
+use App\VisitLog;
+use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+
+abstract class TestCase extends BaseTestCase
 {
-    /**
-     * The base URL to use while testing the application.
-     *
-     * @var string
-     */
-    protected $baseUrl = 'http://localhost';
+    use CreatesApplication;
 
-    /**
-     * Creates the application.
-     *
-     * @return \Illuminate\Foundation\Application
-     */
-    public function createApplication()
+    protected $baseUrl = 'https://krc.dev';
+
+    public function newMember($params = [])
     {
-        $app = require __DIR__.'/../bootstrap/app.php';
+        return factory(Member::class)->make($params);
+    }
 
-        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+    public function savedNewMember($params = [])
+    {
+        $member = $this->newMember();
+        $member->save();
 
-        return $app;
+        return $member;
+    }
+
+    public function newVisitLogInside($params = [])
+    {
+        return factory(VisitLog::class)
+            ->states('inside')
+            ->create($params);
+    }
+
+    public function newVisitLogOutside($params = [])
+    {
+        return factory(VisitLog::class)
+            ->states('outside')
+            ->create($params);
     }
 }

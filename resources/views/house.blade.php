@@ -39,7 +39,9 @@
         </h2>
     </nav>
 
-    @yield('content')
+    <div id="app">
+        @yield('content')
+    </div>
 
     <footer class="footer">
         <p>

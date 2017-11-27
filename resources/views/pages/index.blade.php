@@ -7,9 +7,8 @@
                 <member
                     name="{{ $member->name }}"
                     image="{{ $member->image }}"
-                    href="{{ route('member', [$member, $member->slug]) }}"
-                    present="{{ $member->present }}"
-                    ></member>
+                    present="{{ $member->present }}"></member>
+                    {{-- href="{{ route('member', [$member, $member->slug]) }}" --}}
             @endforeach
         </faces>
     </div>
