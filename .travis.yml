@@ -13,7 +13,7 @@ before_script:
   # - mysql -e 'CREATE DATABASE realworld_test;'
 
 script:
-  - vendor/bin/phpunit tests/Unit/*
+  - vendor/bin/phpunit
 
 # services:
   # - mysql
