@@ -89,10 +89,15 @@ class MinuteTest extends TestCase
     {
 		$member = $this->savedNewMember();
 
-		$entrance = $member->visits()->save($this->newVisitLogInside(['created_at' => Carbon::now()->subMinutes(180)]));
-		$leaving = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()->subMinutes(120)]));
-		$entrance2 = $member->visits()->save($this->newVisitLogInside(['created_at' => Carbon::now()->subMinutes(60)]));
-		$leaving2 = $member->visits()->save($this->newVisitLogOutside(['created_at' => Carbon::now()]));
+		$time1 = Carbon::createFromDate(2017, 2, 18)->startOfDay()->addHours(12);
+		$time2 = Carbon::createFromDate(2017, 2, 18)->startOfDay()->addHours(12);
+		$time3 = Carbon::createFromDate(2017, 2, 18)->startOfDay()->addHours(12);
+		$time4 = Carbon::createFromDate(2017, 2, 18)->startOfDay()->addHours(12);
+
+		$entrance = $member->visits()->save($this->newVisitLogInside(['created_at' => $time1->subMinutes(180)]));
+		$leaving = $member->visits()->save($this->newVisitLogOutside(['created_at' => $time2->subMinutes(120)]));
+		$entrance2 = $member->visits()->save($this->newVisitLogInside(['created_at' => $time3->subMinutes(60)]));
+		$leaving2 = $member->visits()->save($this->newVisitLogOutside(['created_at' => $time4]));
 
 		$result = Minute::keep($member, $leaving);
 
