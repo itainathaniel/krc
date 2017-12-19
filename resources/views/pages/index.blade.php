@@ -1,7 +1,7 @@
 @extends ('knesset')
 
 @section ('master-content')
-    <div id="homepage">
+    <div id="app">
         <faces>
             @foreach ($members as $member)
                 <member
