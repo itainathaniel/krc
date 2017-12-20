@@ -2,7 +2,7 @@
 
 @section ('master-content')
     <div id="app">
-        <faces>
+        <div class="faces">
             @foreach ($members as $member)
                 <member
                     name="{{ $member->name }}"
@@ -10,7 +10,7 @@
                     present="{{ $member->present }}"></member>
                     {{-- href="{{ route('member', [$member, $member->slug]) }}" --}}
             @endforeach
-        </faces>
+        </div>
     </div>
     {{-- <div class="row isInside" id="faces">
         <h1>{{ trans('index.nowInside', ['count' => count($members) ]) }}</h1>
