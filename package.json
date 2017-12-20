@@ -17,8 +17,9 @@
         "eslint-plugin-import": "^2.8.0",
         "laravel-mix": "^1.0",
         "lodash": "^4.17.4",
-        "vue": "^2.5.9",
-        "vue-resource": "^1.0.3"
+        "vue": "^2.5.13",
+        "vue-resource": "^1.0.3",
+        "vue-template-compiler": "^2.5.13"
     },
     "dependencies": {
         "bulma": "^0.4.4"
