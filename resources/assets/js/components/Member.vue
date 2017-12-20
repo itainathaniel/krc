@@ -12,7 +12,7 @@
         props: {
             name: { required: true },
             image: { required: true },
-            href: { required: true },
+            href: { required: false },
             present: { required: true }
         },
 
@@ -37,10 +37,10 @@
                 baseClassname: 'column member__profile',
                 longname: 15
             }
-        },
+        // },
 
-        mounted() {
-            console.log('Member component ready.')
+        // mounted() {
+            // console.log('Member component ready.')
         }
     }
 </script>
