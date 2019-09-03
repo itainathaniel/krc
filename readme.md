@@ -11,3 +11,7 @@ At the moment, Knesset Roll Call is the work product of [Itai Nathaniel](http://
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Itai Nathaniel at im@it.ai.
+
+## Thanks
+
+Error monitoring & reporting by<br><a href="https://www.bugsnag.com"><img src="https://global-uploads.webflow.com/5c741219fd0819540590e785/5c741219fd0819856890e790_asset%2039.svg" alt="Bugsnag" width="100"></a>
